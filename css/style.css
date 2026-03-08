@@ -1,24 +1,19 @@
 :root {
     --primary: #8a0f68;
     --primary-dark: #6c0c52;
-
     --secondary: #eef8f8;
     --accent: #7b63f1;
     --accent-dark: #6449dc;
-
     --teal: #03969d;
     --teal-dark: #027b81;
-
     --coral: #e65a47;
     --orange: #f29a57;
     --blue: #163f9f;
-
-    --text: #2b2b2b;
+    --text: #5a4a4f;
     --muted: #666666;
     --bg: #fefefe;
     --bg-soft: #f9f6fb;
     --white: #ffffff;
-
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --radius: 18px;
     --max: 1180px;
@@ -34,8 +29,13 @@ html {
     scroll-behavior: smooth;
 }
 
+html,
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     color: var(--text);
     background: var(--bg);
     line-height: 1.6;
@@ -133,7 +133,7 @@ a {
     border-radius: 999px;
     background: linear-gradient(135deg, var(--accent), var(--primary));
     color: var(--white);
-    font-weight: bold;
+    font-weight: 600;
     transition: 0.25s ease;
 }
 
@@ -205,7 +205,7 @@ a {
     justify-content: center;
     padding: 14px 22px;
     border-radius: 999px;
-    font-weight: bold;
+    font-weight: 600;
     transition: 0.25s ease;
     border: 2px solid transparent;
 }
@@ -249,10 +249,12 @@ a {
     color: var(--primary);
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     margin-bottom: 14px;
+    font-weight: 600;
 }
 
 .section-title p {
     color: var(--muted);
+    font-weight: 400;
 }
 
 /* ABOUT */
@@ -279,6 +281,7 @@ a {
     font-size: 1.7rem;
     color: var(--primary);
     margin-bottom: 16px;
+    font-weight: 600;
 }
 
 .about-text p {
@@ -339,6 +342,7 @@ a {
     color: var(--primary);
     margin-bottom: 10px;
     font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .service-card p {
@@ -397,6 +401,7 @@ a {
 .support-item h4 {
     color: var(--blue);
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .support-item p {
@@ -409,6 +414,7 @@ a {
     padding: 90px 0 80px;
     background: linear-gradient(to bottom, #ffffff 0%, #f9f6fb 14%, #f9f6fb 100%);
     border-top: 1px solid rgba(138, 15, 104, 0.08);
+    overflow: hidden;
 }
 
 .contact-title {
@@ -420,6 +426,7 @@ a {
     color: var(--primary);
     font-size: 2.5rem;
     margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .contact-title p {
@@ -428,6 +435,12 @@ a {
     margin: 0 auto;
     line-height: 1.7;
     font-size: 1.08rem;
+}
+
+.contact-container,
+.contact-info,
+.contact-form {
+    min-width: 0;
 }
 
 .contact-container {
@@ -441,6 +454,7 @@ a {
     color: var(--primary);
     margin-bottom: 25px;
     font-size: 2rem;
+    font-weight: 600;
 }
 
 .contact-info p {
@@ -454,12 +468,14 @@ a {
     padding: 35px;
     border-radius: 15px;
     border: 1px solid rgba(138, 15, 104, 0.08);
+    width: 100%;
 }
 
 .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
 }
 
 .contact-form label {
@@ -471,6 +487,8 @@ a {
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
+    width: 100%;
+    max-width: 100%;
     padding: 14px;
     border-radius: 8px;
     border: 1px solid #d8d8d8;
@@ -499,7 +517,7 @@ a {
     padding: 15px 18px;
     border: none;
     border-radius: 25px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
@@ -526,6 +544,7 @@ a {
     font-size: 2rem;
     margin-bottom: 25px;
     color: #ffffff;
+    font-weight: 600;
 }
 
 .footer-column p,
@@ -593,7 +612,6 @@ a {
 
 /* TABLET */
 @media (max-width: 980px) {
-
     .about-grid,
     .services-grid,
     .support-grid,
@@ -605,6 +623,10 @@ a {
 
 /* MOBILE */
 @media (max-width: 760px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+
     .navbar {
         min-height: 82px;
     }
@@ -678,6 +700,19 @@ a {
         min-height: 300px;
     }
 
+    .contact-container {
+        gap: 24px;
+    }
+
+    .contact-form {
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    .contact-form textarea {
+        min-height: 140px;
+    }
+
     .contact-title h2 {
         font-size: 2.1rem;
     }
@@ -692,21 +727,12 @@ a {
         font-size: 1rem;
     }
 
+    .contact-info,
+    .contact-form {
+        overflow-wrap: break-word;
+    }
+
     .footer-column h3 {
         font-size: 1.6rem;
     }
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #5a4a4f;
-}
-
-h2 {
-    font-weight: 600;
-    color: #a52c63;
-}
-
-p {
-    font-weight: 400;
 }
