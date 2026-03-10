@@ -374,7 +374,7 @@ a {
 /* SUPPORT */
 #apoio {
     background: #ffffff;
-    padding-bottom: 95px;
+    padding-bottom: 40px;
 }
 
 .support-grid {
@@ -612,6 +612,7 @@ a {
 
 /* TABLET */
 @media (max-width: 980px) {
+
     .about-grid,
     .services-grid,
     .support-grid,
@@ -761,4 +762,113 @@ a {
     .footer-column h3 {
         font-size: 1.6rem;
     }
+
+    .partners-section {
+        padding: 66px 0;
+    }
+
+    .partner-logo {
+        width: 150px;
+        height: 80px;
+        padding: 14px;
+    }
+
+    .partner-logo img {
+        max-height: 42px;
+    }
+
+    .partners-track {
+        gap: 18px;
+        animation: partnersScroll 20s linear infinite;
+    }
+}
+
+/* PARTNERS */
+.partners-section {
+    padding: 50px 0 70px;
+    background: var(--white);
+    overflow: hidden;
+}
+
+.partners-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+.partners-track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    width: max-content;
+    animation: partnersScroll 28s linear infinite;
+}
+
+.partner-logo {
+    flex: 0 0 auto;
+    width: 190px;
+    height: 95px;
+    background: var(--white);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    padding: 18px;
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 55px;
+    object-fit: contain;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+
+.partner-logo:hover img {
+    transform: scale(1.03);
+}
+
+@keyframes partnersScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            rgba(138, 15, 104, 0.25),
+            transparent);
+    margin: 40px 0;
+}
+
+/* WHATSAPP FLOAT BUTTON */
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    transition: 0.25s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.08);
+    background: #20ba5a;
 }
