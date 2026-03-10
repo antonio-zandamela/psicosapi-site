@@ -898,3 +898,12 @@ a {
         animation: partnersScroll 20s linear infinite;
     }
 }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.services-grid .service-card:last-child {
+    grid-column: 2;
+}
