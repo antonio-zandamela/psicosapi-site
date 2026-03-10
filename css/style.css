@@ -279,7 +279,7 @@ a {
 }
 
 .about-image {
-    min-height: 420px;
+    min-height: 380px;
     background: url('../img/about/equipe.jpg') center center / cover no-repeat;
 }
 
@@ -909,5 +909,221 @@ a {
 
     .services-grid .service-card:last-child {
         grid-column: auto;
+    }
+}
+.about-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+}
+
+.about-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+}
+
+/* ABOUT PAGE */
+.about-page-hero {
+    padding: 90px 0 70px;
+    background: linear-gradient(135deg, rgba(3, 150, 157, 0.08), rgba(138, 15, 104, 0.08));
+}
+
+.about-page-hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-page-hero-content h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.about-page-hero-content p {
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+.about-page-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 36px;
+    align-items: center;
+}
+
+.about-page-text h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.about-page-text p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+.about-page-image-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.about-page-image-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.mvv-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.mvv-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: rgba(3, 150, 157, 0.10);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.mvv-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.mvv-card p {
+    color: var(--muted);
+}
+
+.spaces-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.space-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: 0.25s ease;
+}
+
+.space-card:hover {
+    transform: translateY(-5px);
+}
+
+.space-card img,
+.video-section-card video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.space-card img {
+    height: 320px;
+}
+
+.space-content {
+    padding: 22px;
+}
+
+.space-content h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.space-content p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.video-section-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.video-section-card video {
+    max-height: 520px;
+    background: #000;
+}
+
+.about-page-cta {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about-page-cta h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+}
+
+.about-page-cta p {
+    color: var(--muted);
+    margin-bottom: 22px;
+    line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+    .about-page-grid,
+    .mvv-grid,
+    .spaces-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .about-page-hero {
+        padding: 70px 0 50px;
+    }
+
+    .about-page-text h2,
+    .about-page-cta h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-page-image-card img {
+        min-height: 300px;
+    }
+
+    .space-card img {
+        height: 240px;
     }
 }
