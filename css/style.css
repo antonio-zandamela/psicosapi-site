@@ -375,6 +375,7 @@ a {
 #apoio {
     background: #ffffff;
     padding-bottom: 40px;
+    padding-top: 30px;
 }
 
 .support-grid {
@@ -411,7 +412,7 @@ a {
 
 /* CONTACT */
 .contact-section {
-    padding: 90px 0 80px;
+    padding: 50px 0 70px;
     background: linear-gradient(to bottom, #ffffff 0%, #f9f6fb 14%, #f9f6fb 100%);
     border-top: 1px solid rgba(138, 15, 104, 0.08);
     overflow: hidden;
@@ -764,7 +765,7 @@ a {
     }
 
     .partners-section {
-        padding: 66px 0;
+        padding: 40px 0 60px;
     }
 
     .partner-logo {
@@ -871,4 +872,17 @@ a {
 .whatsapp-button:hover {
     transform: scale(1.08);
     background: #20ba5a;
+}
+#sobre {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+#parceiros {
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+#servicos {
+    padding-top: 40px;
+    padding-bottom: 50px;
 }
