@@ -701,8 +701,8 @@ a {
     position: fixed;
     bottom: 22px;
     right: 22px;
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
@@ -716,6 +716,12 @@ a {
 .whatsapp-button:hover {
     transform: scale(1.08);
     background: #20ba5a;
+}
+
+.whatsapp-button i {
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1;
 }
 
 /* TABLET */
