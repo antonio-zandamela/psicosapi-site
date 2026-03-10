@@ -288,6 +288,7 @@ a {
     color: var(--primary);
     margin-bottom: 16px;
     font-weight: 600;
+    text-align: center;
 }
 
 .about-text p {
