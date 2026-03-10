@@ -897,6 +897,18 @@ a {
         gap: 18px;
         animation: partnersScroll 20s linear infinite;
     }
+    #servicos {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid .service-card:last-child {
+        grid-column: auto;
+    }
 }
 .services-grid {
     display: grid;
@@ -906,4 +918,10 @@ a {
 
 .services-grid .service-card:last-child {
     grid-column: 2;
+}
+/* Centraliza o último card só no desktop */
+@media (min-width: 761px) {
+    .services-grid .service-card:last-child {
+        grid-column: 2;
+    }
 }
