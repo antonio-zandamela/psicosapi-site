@@ -744,6 +744,10 @@ a {
         width: calc(100% - 24px);
     }
 
+    .strategic-partners-card {
+        border-radius: 16px;
+    }
+
     .navbar {
         min-height: 82px;
         display: flex;
@@ -947,12 +951,28 @@ a {
     .services-grid .service-card:last-child {
         grid-column: auto;
     }
+
     .hero-title {
-    white-space: normal;
-    font-size: 2rem;
-    line-height: 1.15;
-    word-break: keep-all;
-}
+        white-space: normal;
+        font-size: 2rem;
+        line-height: 1.15;
+        word-break: keep-all;
+    }
+
+    .hero-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-size: 1.9rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    .hero-green,
+    .hero-blue {
+        display: block;
+    }
 }
 
 .about-btn-container {
@@ -1233,7 +1253,6 @@ a {
     font-size: clamp(2.2rem, 5vw, 4.2rem);
     line-height: 1.1;
     margin-bottom: 20px;
-    white-space: nowrap;
 }
 
 .hero-green {
@@ -1244,4 +1263,26 @@ a {
 .hero-blue {
     color: #163f9f;
     /* azul da logo */
+}
+
+/* PARCEIROS ESTRATÉGICOS */
+.partners-strategic-section {
+    background: var(--white);
+}
+
+.strategic-partners-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(138, 15, 104, 0.06);
+
+    max-width: 700px;     /* controla o tamanho da imagem */
+    margin: 0 auto;       /* centraliza o card */
+}
+
+.strategic-partners-card img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
