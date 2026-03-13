@@ -10,3 +10,14 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         navLinks.classList.remove("active");
     });
 });
+
+const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+dropdownToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+        if (window.innerWidth <= 760) {
+            e.preventDefault();
+            toggle.parentElement.classList.toggle("active");
+        }
+    });
+});

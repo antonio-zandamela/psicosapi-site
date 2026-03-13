@@ -159,7 +159,7 @@ a {
 .hero {
     background:
         linear-gradient(rgba(3, 150, 157, 0.55), rgba(138, 15, 104, 0.70)),
-        url('../img/hero/hero.jpg') center/cover no-repeat;
+        url('../img/about/ambiente.jpg') center/cover no-repeat;
     color: var(--white);
     padding: 110px 0 120px;
 }
@@ -910,7 +910,30 @@ a {
     .services-grid .service-card:last-child {
         grid-column: auto;
     }
+
+    .dropdown-menu {
+        position: static;
+        min-width: 100%;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 8px 0 0 14px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 0;
+        white-space: normal;
+    }
 }
+
 .about-btn-container {
     display: flex;
     justify-content: center;
@@ -1102,6 +1125,7 @@ a {
 }
 
 @media (max-width: 980px) {
+
     .about-page-grid,
     .mvv-grid,
     .spaces-grid {
@@ -1126,4 +1150,75 @@ a {
     .space-card img {
         height: 240px;
     }
+}
+
+/* DROPDOWN NAV */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-arrow {
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    min-width: 240px;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+    padding: 10px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: 0.25s ease;
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 11px 18px;
+    font-size: 0.94rem;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(123, 99, 241, 0.08);
+    color: var(--primary);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+.hero-green {
+    color: #03969d; /* verde da logo */
+}
+
+.hero-blue {
+    color: #163f9f; /* azul da logo */
 }
