@@ -1,23 +1,79 @@
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const dropdowns = document.querySelectorAll(".dropdown");
+    const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+    const normalLinks = document.querySelectorAll(".nav-links a:not(.dropdown-toggle)");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+    // Abrir / fechar menu hamburguer
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+    // Dropdowns no mobile
+    dropdownToggles.forEach((toggle) => {
+        toggle.addEventListener("click", (e) => {
+            if (window.innerWidth <= 760) {
+                e.preventDefault();
+
+                const parentDropdown = toggle.closest(".dropdown");
+                const isActive = parentDropdown.classList.contains("active");
+
+                // Fecha todos primeiro
+                dropdowns.forEach((dropdown) => {
+                    dropdown.classList.remove("active");
+                });
+
+                // Reabre só o clicado, se antes estava fechado
+                if (!isActive) {
+                    parentDropdown.classList.add("active");
+                }
+            }
+        });
     });
-});
 
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+    // Fechar menu mobile ao clicar num link normal
+    normalLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 760 && navLinks) {
+                navLinks.classList.remove("active");
 
-dropdownToggles.forEach(toggle => {
-    toggle.addEventListener("click", (e) => {
+                dropdowns.forEach((dropdown) => {
+                    dropdown.classList.remove("active");
+                });
+            }
+        });
+    });
+
+    // Fechar menu e dropdowns ao redimensionar para desktop
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) {
+            if (navLinks) {
+                navLinks.classList.remove("active");
+            }
+
+            dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove("active");
+            });
+        }
+    });
+
+    // Fechar menu ao clicar fora dele no mobile
+    document.addEventListener("click", (e) => {
         if (window.innerWidth <= 760) {
-            e.preventDefault();
-            toggle.parentElement.classList.toggle("active");
+            const clickedInsideNavbar = e.target.closest(".navbar");
+
+            if (!clickedInsideNavbar) {
+                if (navLinks) {
+                    navLinks.classList.remove("active");
+                }
+
+                dropdowns.forEach((dropdown) => {
+                    dropdown.classList.remove("active");
+                });
+            }
         }
     });
 });

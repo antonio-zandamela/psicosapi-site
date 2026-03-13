@@ -746,16 +746,30 @@ a {
 
     .navbar {
         min-height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .logo img {
         height: 58px;
     }
 
+    nav {
+        margin-left: 0;
+    }
+
     .menu-toggle {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 1101;
+        font-size: 2rem;
+        color: var(--primary);
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
     .nav-links {
@@ -771,6 +785,7 @@ a {
         display: none;
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
         border-top: 1px solid rgba(138, 15, 104, 0.08);
+        z-index: 1000;
     }
 
     .nav-links.active {
@@ -789,6 +804,28 @@ a {
     .nav-cta {
         display: inline-flex;
         width: auto;
+    }
+
+    .dropdown-menu {
+        position: static;
+        min-width: 100%;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 8px 0 0 14px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 0;
+        white-space: normal;
     }
 
     .hero {
@@ -910,28 +947,12 @@ a {
     .services-grid .service-card:last-child {
         grid-column: auto;
     }
-
-    .dropdown-menu {
-        position: static;
-        min-width: 100%;
-        background: transparent;
-        box-shadow: none;
-        border-radius: 0;
-        padding: 8px 0 0 14px;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-    }
-
-    .dropdown.active .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-menu a {
-        padding: 10px 0;
-        white-space: normal;
-    }
+    .hero-title {
+    white-space: normal;
+    font-size: 2rem;
+    line-height: 1.15;
+    word-break: keep-all;
+}
 }
 
 .about-btn-container {
@@ -1216,9 +1237,11 @@ a {
 }
 
 .hero-green {
-    color: #03969d; /* verde da logo */
+    color: #03969d;
+    /* verde da logo */
 }
 
 .hero-blue {
-    color: #163f9f; /* azul da logo */
+    color: #163f9f;
+    /* azul da logo */
 }
