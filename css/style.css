@@ -1270,7 +1270,7 @@ a {
     background: var(--white);
 }
 
-.strategic-partners-card {
+.strategic-partners-card { 
     background: var(--white);
     border-radius: 20px;
     overflow: hidden;
