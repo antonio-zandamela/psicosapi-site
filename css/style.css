@@ -1406,3 +1406,22 @@ a {
     line-height: 1.6;
     margin: 0;
 }
+
+@media (max-width: 760px) {
+    .testimonials-gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-card {
+        width: 100%;
+    }
+
+    .gallery-card img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+    }
+}
