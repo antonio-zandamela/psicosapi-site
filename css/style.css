@@ -1425,3 +1425,12 @@ a {
         object-fit: contain;
     }
 }
+
+.video-card video {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    border-radius: 0;
+    object-fit: cover;
+    display: block;
+}
