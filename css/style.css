@@ -159,7 +159,7 @@ a {
 .hero {
     background:
         linear-gradient(rgba(3, 150, 157, 0.55), rgba(138, 15, 104, 0.70)),
-        url('../img/about/ambiente.jpg') center/cover no-repeat;
+        url('../asset/img/about/ambiente.jpg') center/cover no-repeat;
     color: var(--white);
     padding: 110px 0 120px;
 }
@@ -280,7 +280,7 @@ a {
 
 .about-image {
     min-height: 380px;
-    background: url('../img/about/equipe.jpg') center center / cover no-repeat;
+    background: url('../asset/img/about/equipe.jpg') center center / cover no-repeat;
 }
 
 .about-text h3 {
@@ -723,6 +723,38 @@ a {
 .whatsapp-button i {
     color: #ffffff;
     font-size: 32px;
+    line-height: 1;
+}
+
+/* SCROLL TO TOP BUTTON */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 22px;
+    left: 22px;
+    width: 62px;
+    height: 62px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 998;
+    transition: 0.25s ease;
+}
+
+#scrollToTopBtn:hover {
+    transform: scale(1.08);
+    background: var(--primary-dark);
+}
+
+#scrollToTopBtn i {
+    color: white;
+    font-size: 24px;
     line-height: 1;
 }
 
