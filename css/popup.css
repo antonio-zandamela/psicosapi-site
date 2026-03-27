@@ -1,0 +1,106 @@
+.custom-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 24, 0.45);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 20px 20px;
+    z-index: 3000;
+}
+
+.custom-popup.active {
+    display: flex;
+}
+
+.custom-popup-box {
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    border-radius: 22px;
+    padding: 30px 24px 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    position: relative;
+    border-top: 6px solid var(--primary);
+    animation: popupFadeIn 0.25s ease;
+}
+
+.custom-popup-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 28px;
+    background: linear-gradient(135deg, var(--teal), var(--accent));
+}
+
+.custom-popup-box.error .custom-popup-icon {
+    background: linear-gradient(135deg, var(--coral), var(--primary));
+}
+
+.custom-popup-box h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.custom-popup-box p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.custom-popup-btn {
+    border: none;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.custom-popup-btn:hover {
+    transform: translateY(-2px);
+}
+
+.custom-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+@media (max-width: 760px) {
+    .custom-popup {
+        padding: 60px 12px 12px;
+    }
+
+    .custom-popup-box {
+        width: min(100%, 96%);
+        max-width: 360px;
+    }
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

@@ -67,131 +67,7 @@ a {
 }
 
 /* HEADER */
-.topbar {
-    background: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-    border-bottom: 2px solid rgba(3, 150, 157, 0.08);
-}
 
-.navbar {
-    min-height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    position: relative;
-    flex-wrap: nowrap;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    gap: 10px;
-    min-width: 160px;
-}
-
-.logo img {
-    height: 72px;
-    width: auto;
-}
-
-.logo-separator {
-    font-size: 2rem;
-    color: var(--primary);
-    font-weight: 700;
-    margin: 0 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-sapicolegio,
-.logo-psicosapi {
-    height: 54px;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    list-style: none;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
-}
-
-.nav-links li, .nav-links a {
-    white-space: nowrap;
-}
-
-.nav-links a {
-    font-size: 0.96rem;
-    color: var(--text);
-    transition: 0.25s ease;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: var(--teal);
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--teal);
-    left: 0;
-    bottom: -4px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-cta {
-    padding: 14px 22px;
-    border-radius: 999px !important;
-    background: linear-gradient(135deg, var(--accent), var(--primary));
-    color: #ffffff !important;
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    box-shadow: 0 6px 16px rgba(123, 99, 241, 0.25);
-    transition: 0.25s ease;
-    border: 1px solid rgba(255,255,255,0.28);
-    min-width: 140px;
-    height: 46px;
-    line-height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-cta:hover {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(123, 99, 241, 0.30);
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--primary);
-    cursor: pointer;
-    line-height: 1;
-    padding: 6px 10px;
-    margin-left: auto;
-}
 
 /* HERO */
 .hero {
@@ -1526,3 +1402,19 @@ a {
     object-fit: cover;
     display: block;
 }
+/* POPUP CUSTOMIZADO */
+.custom-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 24, 0.45);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 20px 20px;
+    z-index: 3000;
+}
+
+.custom-popup.active {
+    display: flex;
+}
+

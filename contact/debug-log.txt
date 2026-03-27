@@ -8,35 +8,21 @@ Telefone: 823927570
 Assunto: Terapia da Fala
 
 Mensagem:
-A testar
+gdgd
 
 ---
 
 Novo pedido de contacto recebido
 
-Origem do formulário: Clínica-Escola
-Destino: colegiosapi@psicosapi.com
+Origem do formulário: Homepage
+Destino: atendimenti@psicosapi.com
 Nome: António João Manasses Zandamela
 Email: tonybusiness258@gmail.com
 Telefone: 844608106
-Assunto: Clínica-Escola
+Assunto: Psicoterapias
 
 Mensagem:
-A testar
-
----
-
-Novo pedido de contacto recebido
-
-Origem do formulário: Consultoria
-Destino: atendimenti@psicosapi.com
-Nome: António João Manassés Zandamela
-Email: tonybusiness258@gmail.com
-Telefone: 823927570
-Assunto: Treinamento & Desenvolvimento (T&D)
-
-Mensagem:
-Testes dos emails
+jhgj
 
 ---
 

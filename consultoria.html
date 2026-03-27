@@ -7,8 +7,8 @@
 
     <title>Consultoria & Serviços | PsicoSAPi</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="asset/img/logo/logo.png">
+    <link rel="stylesheet" href="css/style.css">    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/popup.css" />    <link rel="icon" type="image/png" href="asset/img/logo/logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -221,7 +221,7 @@
 
                 <div class="contact-form">
                     <div id="form-message"></div>
-                    <form action="contact/send-email.php" method="POST">
+                    <form action="contact/send-email.php" method="POST" class="ajax-contact-form">
                         <input type="hidden" name="form_origin" value="Consultoria">
 
                         <label for="nome">Nome Completo</label>
@@ -308,11 +308,25 @@
             <p>© 2026 PsicoSAPi - Consultoria & Serviços. Todos os direitos reservados.</p>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/testimonial.js"></script>
+    <script src="js/popup.js"></script>
     <button id="scrollToTopBtn" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
     <a href="https://wa.me/258826818290" class="whatsapp-button" target="_blank" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <div class="custom-popup" id="customPopup">
+        <div class="custom-popup-box">
+            <button class="custom-popup-close" id="customPopupClose" aria-label="Fechar popup">×</button>
+            <div class="custom-popup-icon" id="customPopupIcon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="customPopupTitle">Mensagem enviada</h3>
+            <p id="customPopupText">Recebemos o seu contacto com sucesso.</p>
+            <button class="custom-popup-btn" id="customPopupBtn">Fechar</button>
+        </div>
+    </div>
 </body>
 
 </html>

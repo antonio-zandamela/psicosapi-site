@@ -22,11 +22,21 @@ $mensagem = clean_input($_POST['mensagem'] ?? '');
 $formOrigin = clean_input($_POST['form_origin'] ?? 'Site');
 
 if ($nome === '' || $email === '' || $assunto === '' || $mensagem === '') {
-    exit('Preencha todos os campos obrigatórios.');
+    header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Preencha todos os campos obrigatórios.'
+    ]);
+    exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit('Email inválido.');
+    header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Email inválido.'
+    ]);
+    exit;
 }
 
 /*
@@ -78,8 +88,17 @@ $mailSent = mail(
     implode("\r\n", $headers)
 );
 
+header('Content-Type: application/json; charset=UTF-8');
+
 if ($mailSent) {
-    echo "Mensagem enviada com sucesso.";
+    echo json_encode([
+        'success' => true,
+        'message' => 'Mensagem enviada com sucesso.'
+    ]);
 } else {
-    echo "Erro ao enviar mensagem.";
+    echo json_encode([
+        'success' => false,
+        'message' => 'Ocorreu um erro ao enviar a mensagem.'
+    ]);
 }
+exit;
