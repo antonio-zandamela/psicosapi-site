@@ -105,8 +105,8 @@
                     <h2>Quem Somos</h2>
                     <p>
                         Uma Clínica focada no Atendimento Psicológico - AIP e na Intervenção Multidisciplinar.
-                        <br>Destacamo-nos pelo(a):
-                        Compromisso | Privacidade | Ética I Segurança | Cuidado Personalizado.
+                        <br> <span style="white-space: nowrap;">Destacamo-nos pelo(a):
+                            Compromisso | Privacidade | Ética | Segurança | Cuidado Personalizado</span>
                     </p>
                 </div>
 
@@ -336,31 +336,36 @@
                 </div>
 
                 <div class="contact-form">
-                    <form>
+                    <div id="form-message"></div>
+                    <form action="contact/send-email.php" method="POST">
+                        <input type="hidden" name="form_origin" value="Homepage">
+
                         <label for="nome">Nome Completo</label>
-                        <input id="nome" type="text" placeholder="Digite seu nome completo" required />
+                        <input id="nome" name="nome" type="text" placeholder="Digite o seu nome completo" required>
 
                         <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="seu.email@exemplo.com" required />
+                        <input id="email" name="email" type="email" placeholder="seu.email@exemplo.com" required>
 
                         <label for="telefone">Telefone</label>
-                        <input id="telefone" type="tel" placeholder="Celular (ex: +258 8X XXX XXXX)" />
+                        <input id="telefone" name="telefone" type="tel" placeholder="+258 8X XXX XXXX">
 
-                        <label for="servico">Serviço de Interesse</label>
-                        <select id="servico">
-                            <option>Selecione um serviço</option>
-                            <option>Consulta Psicológica</option>
-                            <option>Psicoterapia</option>
+                        <label for="assunto">Serviço de Interesse</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione um serviço</option>
+                            <option>Avaliação e Diagnóstico</option>
+                            <option>Psicoterapias</option>
                             <option>Terapia da Fala</option>
                             <option>Terapia Ocupacional</option>
                             <option>Terapia Nutricional</option>
-                            <option>Orientação Parental</option>
-                            <option>Outro (especificar na mensagem)</option>
+                            <option>Terapia ABA</option>
+                            <option>Treino e Orientação Parental</option>
+                            <option>Pedagogia Especializada</option>
+                            <option>Informações Gerais</option>
                         </select>
 
                         <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem"
-                            placeholder="Descreva brevemente o motivo do seu contacto..."></textarea>
+                        <textarea id="mensagem" name="mensagem"
+                            placeholder="Descreva brevemente o motivo do seu contacto..." required></textarea>
 
                         <button type="submit" class="contact-btn">Enviar Mensagem</button>
                     </form>

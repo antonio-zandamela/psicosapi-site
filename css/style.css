@@ -156,7 +156,7 @@ a {
 }
 
 .nav-cta {
-    padding: 14px 24px;
+    padding: 14px 22px;
     border-radius: 999px !important;
     background: linear-gradient(135deg, var(--accent), var(--primary));
     color: #ffffff !important;
@@ -806,6 +806,10 @@ a {
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
+
+    .nav-links {
+        gap: 18px;
+    }
 }
 
 /* MOBILE */
@@ -886,6 +890,16 @@ a {
     .nav-cta {
         display: inline-flex;
         width: auto;
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .nav-cta:hover {
+        transform: none;
+    }
+
+    .nav-links a.nav-cta {
+        white-space: nowrap;
     }
 
     .dropdown-menu {
