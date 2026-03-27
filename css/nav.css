@@ -125,15 +125,51 @@
 }
 
 @media (max-width: 760px) {
+    /* Mobile-only: allow logo to shrink, scale images fluidly and keep hamburger visible */
+    .navbar {
+        gap: 4px; /* reduce space between logo and hamburger */
+    }
+
+    .logo {
+        flex: 0 1 auto; /* allow shrinking */
+        min-width: 0; /* don't force a minimum width that pushes the hamburger out */
+        gap: clamp(4px, 2.5vw, 8px);
+        margin-right: 0; /* remove extra right margin */
+    }
+
+    .logo img,
+    .logo-sapicolegio,
+    .logo-psicosapi {
+        /* Slightly larger mobile sizes while still fluid */
+        height: clamp(44px, 10vw, 64px);
+        width: auto;
+        max-width: 100%;
+        display: block;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        z-index: 1101; /* sit above the dropdown menu */
+        flex: 0 0 auto;
+        margin-left: 0; /* remove forced left margin so it sits next to logo */
+        padding: 6px 8px;
+    }
+
+    /* Ensure the expanded nav sits below the header/hamburger */
+    .nav-links {
+        z-index: 100; /* keep lower than .menu-toggle */
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .logo-separator {
         font-size: 1.5rem;
         margin: 0 6px;
     }
 
-    .logo-sapicolegio,
-    .logo-psicosapi {
-        height: 44px;
-    }
+    /* removed fixed 44px to let clamp() control sizing */
 
     .menu-toggle {
         display: inline-flex;
@@ -169,6 +205,16 @@
         padding: 10px 0;
         display: block;
         border-bottom: 1px solid #eee;
+    }
+
+    /* Make the Contactar CTA full-width and center its text on mobile */
+    .nav-links a.nav-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        white-space: normal; /* allow wrapping if needed */
+        padding: 12px 0;
     }
 
     .nav-links .dropdown-menu {
