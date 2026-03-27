@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+// Carrega as configurações do arquivo config.php
 $config = require __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -21,6 +22,7 @@ $assunto = clean_input($_POST['assunto'] ?? '');
 $mensagem = clean_input($_POST['mensagem'] ?? '');
 $formOrigin = clean_input($_POST['form_origin'] ?? 'Site');
 
+// Validação de campos obrigatórios
 if ($nome === '' || $email === '' || $assunto === '' || $mensagem === '') {
     header('Content-Type: application/json; charset=UTF-8');
     echo json_encode([
@@ -30,6 +32,7 @@ if ($nome === '' || $email === '' || $assunto === '' || $mensagem === '') {
     exit;
 }
 
+// Validação de e-mail do cliente
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('Content-Type: application/json; charset=UTF-8');
     echo json_encode([
@@ -40,18 +43,19 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 /*
+
 | Escolher email destino conforme a origem do formulário
+| Ajustado para os e-mails que você criou na Hostinger
 */
-$originsEscola = ['Clínica-Escola'];
+$originsEscola = ['Clínica-Escola', 'Escola', 'Colegio'];
 
 if (in_array($formOrigin, $originsEscola, true)) {
-    $to = $config['emails']['escola'];
+    $to = 'colegio@psicosapi.com';
 } else {
-    $to = $config['emails']['clinica'];
+    $to = 'atendimento@psicosapi.com';
 }
 
-$siteName = $config['site_name'];
-
+$siteName = $config['site_name'] ?? 'PsicoSAPi';
 $emailSubject = "[{$siteName}] Novo contacto - {$assunto}";
 
 $emailBody = <<<TEXT
@@ -68,18 +72,25 @@ Mensagem:
 {$mensagem}
 TEXT;
 
-$headers = [];
-$headers[] = "From: {$siteName} <no-reply@" . ($_SERVER['SERVER_NAME'] ?? 'localhost') . ">";
-$headers[] = "Reply-To: {$nome} <{$email}>";
-$headers[] = "Content-Type: text/plain; charset=UTF-8";
-
 /*
-| Debug log para confirmar que o backend recebeu o pedido
+
+| Configuração de Headers para Hostinger
+| O 'From' DEVE ser um e-mail real do seu domínio para evitar SPAM ou bloqueio.
 */
-file_put_contents(__DIR__ . '/debug-log.txt', $emailBody . "\n\n---\n\n", FILE_APPEND);
+$headers = [];
+$headers[] = "From: {$siteName} <atendimento@psicosapi.com>"; 
+$headers[] = "Reply-To: {$nome} <{$email}>"; // Quando você responder, vai para o cliente
+$headers[] = "Content-Type: text/plain; charset=UTF-8";
+$headers[] = "X-Mailer: PHP/" . phpversion();
 
 /*
-| Envio do email
+
+| Debug log (Opcional - útil para ver se o PHP está processando)
+*/
+file_put_contents(__DIR__ . '/debug-log.txt', "Envio para: {$to}\n" . $emailBody . "\n\n---\n\n", FILE_APPEND);
+
+/*
+| Envio do email usando a função nativa do PHP
 */
 $mailSent = mail(
     $to,
@@ -98,7 +109,7 @@ if ($mailSent) {
 } else {
     echo json_encode([
         'success' => false,
-        'message' => 'Ocorreu um erro ao enviar a mensagem.'
+        'message' => 'Erro técnico: O servidor recusou o envio do e-mail.'
     ]);
 }
 exit;

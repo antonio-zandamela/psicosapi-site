@@ -3,7 +3,7 @@
 return [
     'site_name' => 'PsicoSAPi',
     'emails' => [
-        'clinica' => 'atendimenti@psicosapi.com',
+        'clinica' => 'atendimento@psicosapi.com',
         'escola' => 'colegiosapi@psicosapi.com',
     ],
 ];
