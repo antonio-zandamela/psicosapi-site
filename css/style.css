@@ -83,6 +83,7 @@ a {
     justify-content: space-between;
     gap: 18px;
     position: relative;
+    flex-wrap: nowrap;
 }
 
 .logo {
@@ -90,6 +91,7 @@ a {
     align-items: center;
     flex-shrink: 0;
     gap: 10px;
+    min-width: 160px;
 }
 
 .logo img {
@@ -118,6 +120,13 @@ a {
     align-items: center;
     gap: 24px;
     list-style: none;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.nav-links li, .nav-links a {
+    white-space: nowrap;
 }
 
 .nav-links a {
@@ -147,17 +156,25 @@ a {
 }
 
 .nav-cta {
-    padding: 12px 18px;
-    border-radius: 999px;
+    padding: 14px 22px;
+    border-radius: 999px !important;
     background: linear-gradient(135deg, var(--accent), var(--primary));
-    color: var(--white);
-    font-weight: 600;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 6px 16px rgba(123, 99, 241, 0.25);
     transition: 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.28);
+    min-width: 140px;
+    justify-content: center;
 }
 
 .nav-cta:hover {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(123, 99, 241, 0.30);
 }
 
 .menu-toggle {
