@@ -156,7 +156,7 @@ a {
 }
 
 .nav-cta {
-    padding: 14px 22px;
+    padding: 14px 24px;
     border-radius: 999px !important;
     background: linear-gradient(135deg, var(--accent), var(--primary));
     color: #ffffff !important;
@@ -168,6 +168,10 @@ a {
     transition: 0.25s ease;
     border: 1px solid rgba(255,255,255,0.28);
     min-width: 140px;
+    height: 46px;
+    line-height: 46px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
 }
 
