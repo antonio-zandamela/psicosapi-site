@@ -29,7 +29,17 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit('Email inválido.');
 }
 
-$to = $config['to_email'];
+/*
+| Escolher email destino conforme a origem do formulário
+*/
+$originsEscola = ['Clínica-Escola'];
+
+if (in_array($formOrigin, $originsEscola, true)) {
+    $to = $config['emails']['escola'];
+} else {
+    $to = $config['emails']['clinica'];
+}
+
 $siteName = $config['site_name'];
 
 $emailSubject = "[{$siteName}] Novo contacto - {$assunto}";
@@ -38,7 +48,7 @@ $emailBody = <<<TEXT
 Novo pedido de contacto recebido
 
 Origem do formulário: {$formOrigin}
-
+Destino: {$to}
 Nome: {$nome}
 Email: {$email}
 Telefone: {$telefone}
@@ -53,8 +63,14 @@ $headers[] = "From: {$siteName} <no-reply@" . ($_SERVER['SERVER_NAME'] ?? 'local
 $headers[] = "Reply-To: {$nome} <{$email}>";
 $headers[] = "Content-Type: text/plain; charset=UTF-8";
 
+/*
+| Debug log para confirmar que o backend recebeu o pedido
+*/
 file_put_contents(__DIR__ . '/debug-log.txt', $emailBody . "\n\n---\n\n", FILE_APPEND);
 
+/*
+| Envio do email
+*/
 $mailSent = mail(
     $to,
     $emailSubject,
