@@ -811,6 +811,11 @@ a {
         width: auto;
     }
 
+    .logo-separator {
+        font-size: 2rem;
+        margin: 0 8px;
+    }
+
     nav {
         margin-left: 0;
     }
