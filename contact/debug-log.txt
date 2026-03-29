@@ -26,3 +26,34 @@ jhgj
 
 ---
 
+Envio para: atendimento@psicosapi.com
+Novo pedido de contacto recebido
+
+Origem do formulário: Homepage
+Destino: atendimento@psicosapi.com
+Nome: António João Manassés Zandamela
+Email: tonybusiness258@gmail.com
+Telefone: +258823927570
+Assunto: Psicoterapias
+
+Mensagem:
+Email de teste
+
+---
+
+Envio para: atendimento@psicosapi.com
+Novo pedido de contacto recebido
+
+Origem do formulário: Homepage
+Destino: atendimento@psicosapi.com
+Nome: Jose Reginaldo
+Email: jreginaldo.rh@gmail.com
+Telefone: +258846818290
+Assunto: Terapia da Fala
+
+Mensagem:
+Gostaria de saber como agendar uma SS de TF.
+Atenciosamente
+
+---
+
