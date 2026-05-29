@@ -148,6 +148,58 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
+    // Team slider functionality
+    const teamSlider = document.getElementById("teamSlider");
+    const teamPrevBtn = document.getElementById("teamPrevBtn");
+    const teamNextBtn = document.getElementById("teamNextBtn");
+
+    if (teamSlider) {
+        const teamCards = Array.from(teamSlider.querySelectorAll(".team-card"));
+        let currentIndex = 0;
+
+        function showCard(index) {
+            // Garantir que o índice está dentro dos limites
+            currentIndex = Math.max(0, Math.min(index, teamCards.length - 1));
+            
+            // Atualizar visibilidade dos cards
+            teamCards.forEach((card, i) => {
+                if (i === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Atualizar estado dos botões
+            if (teamPrevBtn) {
+                teamPrevBtn.disabled = currentIndex === 0;
+            }
+            if (teamNextBtn) {
+                teamNextBtn.disabled = currentIndex === teamCards.length - 1;
+            }
+        }
+
+        // Event listeners para os botões
+        if (teamPrevBtn) {
+            teamPrevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    showCard(currentIndex - 1);
+                }
+            });
+        }
+
+        if (teamNextBtn) {
+            teamNextBtn.addEventListener('click', () => {
+                if (currentIndex < teamCards.length - 1) {
+                    showCard(currentIndex + 1);
+                }
+            });
+        }
+
+        // Inicializar com o primeiro card
+        showCard(0);
+    }
+
     // Popup functionality for contact forms
     const forms = document.querySelectorAll(".ajax-contact-form");
 
