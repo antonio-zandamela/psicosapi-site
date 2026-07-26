@@ -200,6 +200,69 @@ document.addEventListener("DOMContentLoaded", () => {
         showCard(0);
     }
 
+    // Ensure team headings stay on one line: shrink font only when it would overflow
+    function adjustHeadingToFit(h3) {
+        if (!h3) return;
+
+        // Prevent wrapping so we can detect overflow
+        h3.style.whiteSpace = 'nowrap';
+        h3.style.display = 'block';
+
+        const parent = h3.parentElement;
+        if (!parent) return;
+
+        // Reset inline font-size first so computed style is the stylesheet default
+        h3.style.fontSize = '';
+
+        const computed = window.getComputedStyle(h3);
+        let fontSize = parseFloat(computed.fontSize);
+        const minFont = 12; // px
+
+        // If it already fits, ensure no inline sizing remains
+        if (h3.scrollWidth <= parent.clientWidth) {
+            h3.style.fontSize = '';
+            return;
+        }
+
+        // Reduce font size until it fits or until minFont reached
+        // Use small steps to keep scaling smooth
+        while (h3.scrollWidth > parent.clientWidth && fontSize > minFont) {
+            fontSize -= 0.5;
+            h3.style.fontSize = fontSize + 'px';
+            // safety: break if loop is too long
+            if (fontSize <= minFont) break;
+        }
+    }
+
+    // Observe all team headings and resize on container or viewport changes
+    const teamHeadings = document.querySelectorAll('.team-card-content h3');
+
+    if (teamHeadings.length > 0) {
+        // Initial pass
+        teamHeadings.forEach(h3 => adjustHeadingToFit(h3));
+
+        // Re-check on window resize (debounced)
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                teamHeadings.forEach(h3 => adjustHeadingToFit(h3));
+            }, 80);
+        });
+
+        // Observe each heading's parent for size changes
+        if (window.ResizeObserver) {
+            const ro = new ResizeObserver(entries => {
+                entries.forEach(entry => {
+                    const h3 = entry.target.querySelector && entry.target.querySelector('h3');
+                    if (h3) adjustHeadingToFit(h3);
+                });
+            });
+
+            document.querySelectorAll('.team-card-content').forEach(el => ro.observe(el));
+        }
+    }
+
     // Popup functionality for contact forms
     const forms = document.querySelectorAll(".ajax-contact-form");
 
